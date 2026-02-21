@@ -3,6 +3,7 @@
 import { useEffect, useId, useState } from "react";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
 
 export function storageKey(question: string) {
   return `qa:${question}`;
@@ -30,11 +31,21 @@ export function QuestionAnswer({ question, clearKey, onSave }: QuestionAnswerPro
     onSave?.();
   };
 
+  const handleSearch = () => {
+    const url = `https://www.google.com/search?q=${encodeURIComponent(question)}`;
+    window.open(url, "_blank");
+  };
+
   return (
     <div className="flex flex-col gap-2">
-      <Label htmlFor={id} className="text-base font-semibold">
-        {question}
-      </Label>
+      <div className="flex items-center justify-between">
+        <Label htmlFor={id} className="text-base font-semibold">
+          {question}
+        </Label>
+        <Button variant="outline" size="sm" onClick={handleSearch}>
+          Search Answer
+        </Button>
+      </div>
       <Textarea
         id={id}
         placeholder="Type your answer here..."

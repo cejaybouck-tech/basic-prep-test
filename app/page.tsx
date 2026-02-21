@@ -1,15 +1,19 @@
-import { QuestionSection } from "@/components/question-section";
-import { reactQuestions } from "@/data/react-questions";
-import { QuestionTest } from "@/components/question-test";
+import { allTests } from "@/data/all-tests";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <div className="w-full flex justify-center">
-      <div className="flex flex-col gap-y-4 w-full max-w-375 p-8">
-        <QuestionTest
-          testType="React Interview Prep"
-          sections={reactQuestions}
-        />
+      <div className="flex gap-y-4 w-full max-w-375 p-8">
+        {Object.keys(allTests).map((test) => (
+          <Link
+            key={"test-link-" + test}
+            href={"/test/" + test}
+            className="p-4 border shadow-md hover:bg-yellow-500 rounded-lg"
+          >
+            {test}
+          </Link>
+        ))}
       </div>
     </div>
   );

@@ -1,7 +1,4 @@
-export interface QuestionSectionData {
-  title: string
-  questions: string[]
-}
+import { QuestionSectionData } from "./all-tests";
 
 export const reactQuestions: QuestionSectionData[] = [
   {
@@ -114,4 +111,4 @@ export const reactQuestions: QuestionSectionData[] = [
       "How do you handle code splitting and lazy loading?",
     ],
   },
-]
+];
