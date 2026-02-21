@@ -37,9 +37,9 @@ export function QuestionAnswer({ question, clearKey, onSave }: QuestionAnswerPro
   };
 
   return (
-    <div className="flex flex-col gap-2">
-      <div className="flex items-center justify-between">
-        <Label htmlFor={id} className="text-base font-semibold">
+    <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+        <Label htmlFor={id} className="text-sm sm:text-base font-semibold break-words">
           {question}
         </Label>
         <Button variant="outline" size="sm" onClick={handleSearch}>
@@ -50,7 +50,7 @@ export function QuestionAnswer({ question, clearKey, onSave }: QuestionAnswerPro
         id={id}
         placeholder="Type your answer here..."
         rows={4}
-        className="min-h-24 min-w-150 resize-y"
+        className="min-h-24 w-full resize-y"
         value={answer}
         onChange={(e) => handleChange(e.target.value)}
       />

@@ -5,7 +5,7 @@ import { QuestionSection } from "@/components/question-section";
 import { storageKey } from "@/components/question-answer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import type { QuestionSectionData } from "@/data/react-questions";
+import type { QuestionSectionData } from "@/data/all-tests";
 
 interface QuestionTestProps {
   testType: string;
@@ -59,8 +59,8 @@ export function QuestionTest({ testType, sections }: QuestionTestProps) {
 
   return (
     <div className="flex flex-col gap-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold tracking-tight">{testType}</h1>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">{testType}</h1>
         {reviewMode && (
           <Button variant="destructive" onClick={handleResetTest}>
             Reset Test
@@ -90,13 +90,14 @@ export function QuestionTest({ testType, sections }: QuestionTestProps) {
             onSave={handleSave}
           />
 
-          <div className="flex items-center justify-end gap-3">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-end">
             <span className="text-muted-foreground text-sm">
               {answered} of {totalQuestions} answered
             </span>
             {reviewMode ? (
               <Button
                 size="lg"
+                className="w-full sm:w-auto"
                 onClick={() =>
                   currentIndex < sections.length - 1
                     ? setCurrentIndex((i) => i + 1)
@@ -109,6 +110,7 @@ export function QuestionTest({ testType, sections }: QuestionTestProps) {
             ) : (
               <Button
                 size="lg"
+                className="w-full sm:w-auto"
                 disabled={!canContinue}
                 onClick={() => setCurrentIndex((i) => i + 1)}
               >

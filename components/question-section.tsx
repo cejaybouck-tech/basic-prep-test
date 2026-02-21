@@ -38,8 +38,8 @@ export function QuestionSection({ title, questions, onSave }: QuestionSectionPro
 
   return (
     <Card>
-      <CardHeader>
-        <CardTitle className="text-2xl border-b">{title}</CardTitle>
+      <CardHeader className="gap-2 sm:flex-row sm:items-center sm:justify-between">
+        <CardTitle className="text-xl sm:text-2xl border-b">{title}</CardTitle>
         <CardAction>
           <AlertDialog>
             <AlertDialogTrigger asChild>

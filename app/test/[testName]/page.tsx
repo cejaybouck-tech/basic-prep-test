@@ -23,7 +23,7 @@ export default function TestPage() {
 
   return (
     <div className="w-full flex justify-center">
-      <div className="flex flex-col gap-y-6 w-full max-w-375 p-8">
+      <div className="flex flex-col gap-y-6 w-full max-w-375 p-4 sm:p-6 md:p-8">
         <Link href="/">
           <Button variant="outline">← Back</Button>
         </Link>
